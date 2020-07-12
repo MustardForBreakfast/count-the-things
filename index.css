@@ -10,6 +10,8 @@ h1 {
     text-align: center;
     width: 100%;
     min-height: 100vh;
+    /* and, because webkit browsers are cranky w/ 100vh... */
+    min-height: -webkit-fill-available;
 }
 
 #countDisplay {
