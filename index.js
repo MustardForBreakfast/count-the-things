@@ -24,7 +24,7 @@ function subOne(){
 function handlePlusClick(e){
   e.preventDefault();
   addOne();
-  renderCount();
+  render();
 }
 
 /**
@@ -33,7 +33,7 @@ function handlePlusClick(e){
 function handleMinusClick(e) {
   e.preventDefault();
   subOne();
-  renderCount();
+  render();
 }
 
 /**
@@ -42,6 +42,28 @@ function handleMinusClick(e) {
 function renderCount() {
   const $count = document.getElementById("countDisplay");
   $count.innerText = `${count}`;
+}
+
+/**
+ * Redraw the H1 text with the current count value.
+ *
+ * ...because I'm five years old.
+ */
+function renderHeaderText() {
+  const defaultText = 'Count the things.';
+  const secretText = 'Nice.';
+  const $header = document.getElementById("headerText");
+
+  if(count === 69){
+    $header.innerText = secretText;
+  } else if($header.innerText !== defaultText) {
+    $header.innerText = defaultText;
+  }
+}
+
+function render() {
+  renderCount();
+  renderHeaderText();
 }
 
 /**
@@ -64,7 +86,7 @@ function initMinusButton() {
  * Initialize the counting of the things.
  */
 function init(){
-  renderCount();
+  render();
   initPlusButton();
   initMinusButton();
 }
